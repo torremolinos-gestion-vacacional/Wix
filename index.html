@@ -3,161 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Verificada Torremolinos | Expertos en Alquiler Vacacional</title>
+    <title>Gestión Verificada Torremolinos</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Playfair para elegancia y Inter para legibilidad -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        :root {
-            --c-orange: #f27d26;
-            --c-dark: #0a0a0a;
-        }
-        body { font-family: 'Inter', sans-serif; background-color: #fff; color: var(--c-dark); }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
         h1, h2, .serif { font-family: 'Playfair Display', serif; }
         
-        /* Estilo Editorial: Tipografía masiva */
-        .hero-title {
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.85;
-            letter-spacing: -0.04em;
-        }
-        
-        .meta-label {
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--c-orange);
-        }
-
-        .bg-editorial {
-            background: linear-gradient(to right, rgba(255,255,255,0.9) 30%, transparent 100%),
+        .bg-hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), 
                         url('https://static.wixstatic.com/media/4e283a_04c77debf6024a40ae0de368d97895aa~mv2.jpg');
             background-size: cover;
             background-position: center;
+            min-height: 100vh;
         }
 
-        html { scroll-behavior: smooth; }
+        /* Ajuste para que el texto no se rompa en espacios estrechos */
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.5rem; }
+        }
     </style>
 </head>
-<body class="selection:bg-orange-100 selection:text-orange-900">
+<body class="bg-white">
 
-    <!-- Hero Section: Editorial Style -->
-    <section class="relative min-h-screen flex items-center bg-editorial pt-20">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl">
-                <p class="meta-label mb-6">Torremolinos • Gestión de Activos</p>
-                <h1 class="hero-title mb-8 font-black italic">
-                    Rentabilidad <br>
-                    <span class="text-orange-600">Sin Esfuerzo.</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-neutral-600 mb-12 max-w-xl leading-relaxed">
-                    Transformamos tu propiedad en Torremolinos en un activo de alto rendimiento. Gestión integral, limpieza profesional y optimización de ingresos.
-                </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="#contacto" class="bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-orange-600 transition-all">
-                        Contactar ahora
-                    </a>
-                    <a href="#servicios" class="border-2 border-black px-10 py-5 rounded-full font-bold text-lg hover:bg-black hover:text-white transition-all">
-                        Nuestros servicios
-                    </a>
+    <!-- Hero Section -->
+    <section class="bg-hero flex items-center justify-center text-center px-4 py-20">
+        <div class="max-w-4xl w-full">
+            <p class="text-orange-600 font-bold uppercase tracking-widest text-sm mb-4">Torremolinos • Gestión de Activos</p>
+            <h1 class="hero-title font-black italic text-neutral-900 mb-6">
+                Rentabilidad <br>
+                <span class="text-orange-600">Sin Esfuerzo.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-600 mb-10 max-w-2xl mx-auto">
+                Transformamos tu propiedad en un activo de alto rendimiento. Gestión integral, limpieza profesional y optimización de ingresos.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contacto" class="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all">
+                    Contactar ahora
+                </a>
+                <a href="#servicios" class="border-2 border-black text-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition-all">
+                    Nuestros servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-neutral-50 border-y border-neutral-200">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <div>
+                <p class="text-5xl font-bold italic serif text-orange-600">+40%</p>
+                <p class="font-bold text-xs uppercase tracking-widest mt-2">Más Ingresos</p>
+            </div>
+            <div>
+                <p class="text-5xl font-bold italic serif text-orange-600">24/7</p>
+                <p class="font-bold text-xs uppercase tracking-widest mt-2">Atención Total</p>
+            </div>
+            <div>
+                <p class="text-5xl font-bold italic serif text-orange-600">100%</p>
+                <p class="font-bold text-xs uppercase tracking-widest mt-2">Legalidad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black italic mb-12 text-center">Gestión <span class="text-orange-600">Integral.</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 border border-neutral-100 rounded-2xl shadow-sm">
+                    <i data-lucide="key" class="text-orange-600 mb-4"></i>
+                    <h3 class="font-bold mb-2">Check-in/out</h3>
+                    <p class="text-sm text-neutral-500">Recepción y control total de la propiedad.</p>
+                </div>
+                <div class="p-6 border border-neutral-100 rounded-2xl shadow-sm">
+                    <i data-lucide="sparkles" class="text-orange-600 mb-4"></i>
+                    <h3 class="font-bold mb-2">Limpieza</h3>
+                    <p class="text-sm text-neutral-500">Estándares de calidad hotelera.</p>
+                </div>
+                <div class="p-6 border border-neutral-100 rounded-2xl shadow-sm">
+                    <i data-lucide="trending-up" class="text-orange-600 mb-4"></i>
+                    <h3 class="font-bold mb-2">Precios</h3>
+                    <p class="text-sm text-neutral-500">Optimización diaria de tarifas.</p>
+                </div>
+                <div class="p-6 border border-neutral-100 rounded-2xl shadow-sm">
+                    <i data-lucide="shield-check" class="text-orange-600 mb-4"></i>
+                    <h3 class="font-bold mb-2">Legal</h3>
+                    <p class="text-sm text-neutral-500">Registro de viajeros y licencias.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section: Technical Grid -->
-    <section class="py-24 border-y border-neutral-200 bg-neutral-50">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                <div>
-                    <p class="text-6xl font-black italic serif text-orange-600 mb-2">+40%</p>
-                    <p class="meta-label">Incremento de Ingresos</p>
-                    <p class="text-sm text-neutral-500 mt-2">Media anual en propiedades gestionadas</p>
-                </div>
-                <div>
-                    <p class="text-6xl font-black italic serif text-orange-600 mb-2">24/7</p>
-                    <p class="meta-label">Atención al Huésped</p>
-                    <p class="text-sm text-neutral-500 mt-2">Tú descansas, nosotros resolvemos</p>
-                </div>
-                <div>
-                    <p class="text-6xl font-black italic serif text-orange-600 mb-2">100%</p>
-                    <p class="meta-label">Cumplimiento Legal</p>
-                    <p class="text-sm text-neutral-500 mt-2">Seguridad total ante la normativa</p>
-                </div>
+    <!-- Contact -->
+    <section id="contacto" class="py-20 bg-black text-white text-center px-6">
+        <h2 class="text-4xl font-black italic mb-10">Hablemos de <span class="text-orange-600">tu propiedad.</span></h2>
+        <div class="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
+            <div class="flex-1 p-8 border border-white/10 rounded-3xl">
+                <i data-lucide="phone" class="text-orange-600 mx-auto mb-4"></i>
+                <p class="text-2xl font-bold">+34 615 834 991</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="py-24">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div class="max-w-2xl">
-                    <h2 class="text-5xl md:text-7xl font-black italic leading-none mb-6">Gestión <br> <span class="text-orange-600">Todo Incluido.</span></h2>
-                    <p class="text-lg text-neutral-500">Nos encargamos de cada detalle para que tu única preocupación sea recibir los ingresos cada mes.</p>
-                </div>
-                <div class="hidden md:block">
-                    <i data-lucide="arrow-down-right" class="w-24 h-24 text-neutral-200"></i>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-200 border border-neutral-200">
-                <div class="bg-white p-10 hover:bg-neutral-50 transition-colors">
-                    <i data-lucide="key" class="w-10 h-10 text-orange-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Check-in & Out</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed">Recepción personalizada de huéspedes y control exhaustivo de la propiedad en cada salida.</p>
-                </div>
-                <div class="bg-white p-10 hover:bg-neutral-50 transition-colors">
-                    <i data-lucide="sparkles" class="w-10 h-10 text-orange-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Limpieza Pro</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed">Equipo propio de limpieza y lavandería industrial. Estándares de calidad hotelera.</p>
-                </div>
-                <div class="bg-white p-10 hover:bg-neutral-50 transition-colors">
-                    <i data-lucide="trending-up" class="w-10 h-10 text-orange-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Revenue Management</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed">Ajustamos los precios diariamente según la demanda para maximizar tu beneficio.</p>
-                </div>
-                <div class="bg-white p-10 hover:bg-neutral-50 transition-colors">
-                    <i data-lucide="shield-check" class="w-10 h-10 text-orange-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Asesoría Legal</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed">Tramitación de licencias turísticas y registro obligatorio de viajeros en la Policía.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="py-24 bg-black text-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-5xl md:text-7xl font-black italic mb-12">Hablemos de <br> <span class="text-orange-600">tu propiedad.</span></h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
-                    <div class="p-8 border border-white/10 rounded-3xl hover:border-orange-600 transition-colors">
-                        <i data-lucide="phone" class="w-8 h-8 text-orange-600 mx-auto mb-6"></i>
-                        <p class="meta-label mb-2">Llámanos</p>
-                        <p class="text-3xl font-bold">+34 615 834 991</p>
-                    </div>
-                    <div class="p-8 border border-white/10 rounded-3xl hover:border-orange-600 transition-colors">
-                        <i data-lucide="mail" class="w-8 h-8 text-orange-600 mx-auto mb-6"></i>
-                        <p class="meta-label mb-2">Email</p>
-                        <p class="text-xl font-bold break-all">apartamento.booking@gmail.com</p>
-                    </div>
-                </div>
+            <div class="flex-1 p-8 border border-white/10 rounded-3xl">
+                <i data-lucide="mail" class="text-orange-600 mx-auto mb-4"></i>
+                <p class="text-lg font-bold break-all">apartamento.booking@gmail.com</p>
             </div>
         </div>
     </section>
 
     <script>
-        // Inicializar iconos de Lucide
         lucide.createIcons();
     </script>
 </body>
