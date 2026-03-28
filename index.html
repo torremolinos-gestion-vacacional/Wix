@@ -472,11 +472,38 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
 
-    // Form submit
+    // Form submit via Formspree
+    // 👉 INSTRUCCIONES: Reemplaza TU_FORM_ID por tu ID de Formspree.
+    //    1. Crea una cuenta gratis en https://formspree.io
+    //    2. Crea un nuevo formulario y copia el ID (ej: "xpzvqklw")
+    //    3. Reemplaza TU_FORM_ID abajo por ese ID
+    const FORMSPREE_ID = 'mjgpgdgw';
+
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      document.getElementById('form-container').classList.add('hidden');
-      document.getElementById('form-success').classList.remove('hidden');
+      const btn = this.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(response) {
+        if (response.ok) {
+          document.getElementById('form-container').classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+        } else {
+          throw new Error('Error en el envío');
+        }
+      })
+      .catch(function() {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo o llámanos al +34 615 834 991.');
+      });
     });
   </script>
 </body>
