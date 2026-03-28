@@ -1,21 +1,64 @@
-import HeroSection from "@/components/HeroSection";
-import PainPointsSection from "@/components/PainPointsSection";
-import ServicesSection from "@/components/ServicesSection";
-import WhyUsSection from "@/components/WhyUsSection";
-import ZonesSection from "@/components/ZonesSection";
-import ContactSection from "@/components/ContactSection";
-
-const Index = () => {
-  return (
-    <main>
-      <HeroSection />
-      <PainPointsSection />
-      <ServicesSection />
-      <WhyUsSection />
-      <ZonesSection />
-      <ContactSection />
-    </main>
-  );
-};
-
-export default Index;
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión Apartamentos Turísticos Torremolinos | Tu Mejor Gestor Vacacional</title>
+    <meta name="description" content="Gestión integral de apartamentos turísticos en Torremolinos. Licencia turística gratis, sin permanencia, solo 15% comisión. Publicamos en Airbnb, Booking y más." />
+    <meta name="keywords" content="gestor apartamentos turísticos Torremolinos, gestión vacacional Torremolinos, alquilar piso turístico Torremolinos, licencia turística Torremolinos, Airbnb Torremolinos" />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="ES-MA" />
+    <meta name="geo.placename" content="Torremolinos" />
+    <meta name="geo.position" content="36.6219;-4.4990" />
+    <meta name="ICBM" content="36.6219, -4.4990" />
+    <link rel="canonical" href="https://gestionapartamentos.wixsite.com/torremolinos" />
+    <meta name="author" content="Gestión Apartamentos Turísticos Torremolinos" />
+    <meta property="og:title" content="Gestión de Apartamentos Turísticos en Torremolinos" />
+    <meta property="og:description" content="Nos encargamos de todo: limpieza, llaves, huéspedes, licencia turística gratis. Sin permanencia, solo 15% comisión." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Gestión Apartamentos Turísticos Torremolinos",
+      "description": "Gestión integral de apartamentos, pisos, casas y villas turísticas en Torremolinos. Licencia turística gratis, sin permanencia.",
+      "url": "https://gestionapartamentos.wixsite.com/torremolinos",
+      "telephone": "+34615834991",
+      "email": "apartamento.booking@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C. Campillos, 4",
+        "addressLocality": "Torremolinos",
+        "addressRegion": "Málaga",
+        "postalCode": "29620",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "36.6219",
+        "longitude": "-4.4990"
+      },
+      "areaServed": [
+        {"@type":"Place","name":"Torremolinos"},
+        {"@type":"Place","name":"La Carihuela"},
+        {"@type":"Place","name":"Playamar"},
+        {"@type":"Place","name":"Los Álamos"},
+        {"@type":"Place","name":"El Bajondillo"},
+        {"@type":"Place","name":"Montemar"}
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "priceRange": "15% comisión"
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
