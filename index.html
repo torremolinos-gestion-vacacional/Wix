@@ -31,7 +31,6 @@
       --clay: #c4a882;
       --clay-deep: #9e7d5a;
       --sea: #2a4a5e;
-      --sea-light: #3d6b85;
       --midnight: #111820;
       --white: #fdfaf7;
       --text-body: #3a3530;
@@ -54,7 +53,7 @@
       background: var(--midnight);
       position: relative;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       overflow: hidden;
     }
 
@@ -76,8 +75,7 @@
 
     .hero__line {
       position: absolute;
-      left: 0; right: 0;
-      bottom: 0;
+      left: 0; right: 0; bottom: 0;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--clay) 30%, var(--accent) 70%, transparent);
     }
@@ -86,13 +84,13 @@
       position: relative;
       z-index: 2;
       max-width: 1100px;
+      width: 100%;
       margin: 0 auto;
-      padding: 40px 40px 100px;
+      padding: 48px 40px 100px;
     }
 
     .hero__badge {
       display: inline-block;
-      font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.2em;
@@ -114,11 +112,7 @@
       margin-bottom: 32px;
       animation: fadeUp 0.8s 0.15s ease both;
     }
-
-    .hero__title em {
-      font-style: italic;
-      color: var(--clay);
-    }
+    .hero__title em { font-style: italic; color: var(--clay); }
 
     .hero__subtitle {
       font-size: clamp(16px, 2vw, 20px);
@@ -150,6 +144,8 @@
       padding: 16px 36px;
       border-radius: 4px;
       text-decoration: none;
+      border: none;
+      cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,168,107,0.35); }
@@ -196,10 +192,7 @@
     }
 
     /* ─── STATS ─── */
-    .stats {
-      background: var(--sea);
-      padding: 60px 40px;
-    }
+    .stats { background: var(--sea); padding: 60px 40px; }
     .stats__inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -252,15 +245,9 @@
       margin-bottom: 60px;
     }
 
-    /* ─── PAIN SECTION ─── */
+    /* ─── PAIN ─── */
     .pain { background: var(--sand); }
-
-    .pain__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-    }
-
+    .pain__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .pain__card {
       background: var(--white);
       padding: 48px 40px;
@@ -269,35 +256,22 @@
       transition: transform 0.3s;
     }
     .pain__card:hover { transform: translateY(-4px); }
-
     .pain__card::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
-      width: 3px;
-      height: 0;
+      width: 3px; height: 0;
       background: var(--clay);
       transition: height 0.4s ease;
     }
     .pain__card:hover::before { height: 100%; }
-
-    .pain__icon {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
+    .pain__icon { font-size: 32px; margin-bottom: 20px; }
     .pain__card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 14px;
-      color: var(--midnight);
+      font-size: 24px; font-weight: 600;
+      margin-bottom: 14px; color: var(--midnight);
     }
-    .pain__card p {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--text-light);
-    }
+    .pain__card p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-light); }
 
     .pain__callout {
       margin-top: 60px;
@@ -312,28 +286,15 @@
     }
     .pain__callout p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--white);
-      max-width: 560px;
-      line-height: 1.4;
+      font-size: 28px; font-weight: 300; font-style: italic;
+      color: var(--white); max-width: 560px; line-height: 1.4;
     }
     .pain__callout p strong { color: var(--accent); font-style: normal; font-weight: 400; }
 
     /* ─── BENEFITS ─── */
     .benefits { background: var(--white); }
-
-    .benefits__layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .benefits__visual {
-      position: relative;
-    }
+    .benefits__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .benefits__visual { position: relative; }
     .benefits__card-big {
       background: var(--sea);
       border-radius: 4px;
@@ -342,321 +303,164 @@
     }
     .benefits__card-big .big-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 88px;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
+      font-size: 88px; font-weight: 300;
+      color: var(--accent); line-height: 1;
     }
     .benefits__card-big .big-label {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(253,250,247,0.7);
-      margin-top: 12px;
-      line-height: 1.6;
+      font-size: 14px; font-weight: 300;
+      color: rgba(253,250,247,0.7); margin-top: 12px; line-height: 1.6;
     }
     .benefits__card-small {
-      position: absolute;
-      right: -32px;
-      bottom: -32px;
-      background: var(--accent);
-      border-radius: 4px;
-      padding: 28px 32px;
-      width: 220px;
+      position: absolute; right: -32px; bottom: -32px;
+      background: var(--accent); border-radius: 4px;
+      padding: 28px 32px; width: 220px;
     }
     .benefits__card-small .s-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      font-weight: 300;
-      color: var(--midnight);
-      line-height: 1;
+      font-size: 48px; font-weight: 300; color: var(--midnight); line-height: 1;
     }
     .benefits__card-small .s-label {
-      font-size: 12px;
-      font-weight: 400;
-      color: rgba(17,24,32,0.75);
-      margin-top: 6px;
+      font-size: 12px; font-weight: 400;
+      color: rgba(17,24,32,0.75); margin-top: 6px;
     }
-
     .benefits__list { list-style: none; }
     .benefits__list li {
-      display: flex;
-      gap: 20px;
+      display: flex; gap: 20px;
       padding: 28px 0;
       border-bottom: 1px solid var(--sand-dark);
     }
     .benefits__list li:last-child { border-bottom: none; }
     .benefits__list .b-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       background: var(--sand);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
     }
     .benefits__list .b-text h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--midnight);
+      font-size: 20px; font-weight: 600;
+      margin-bottom: 6px; color: var(--midnight);
     }
-    .benefits__list .b-text p {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--text-light);
-      line-height: 1.7;
-    }
+    .benefits__list .b-text p { font-size: 14px; font-weight: 300; color: var(--text-light); line-height: 1.7; }
 
     /* ─── PROCESS ─── */
     .process { background: var(--midnight); }
     .process .section__title { color: var(--white); }
     .process .section__lead { color: rgba(253,250,247,0.55); }
     .process .section__tag { color: var(--accent); }
-
     .process__steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      margin-top: 60px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; margin-top: 60px;
     }
-
     .process__step {
       background: rgba(255,255,255,0.04);
       padding: 44px 32px;
-      position: relative;
       transition: background 0.3s;
     }
     .process__step:hover { background: rgba(255,255,255,0.07); }
-
     .process__step-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
-      font-weight: 300;
-      color: rgba(200,168,107,0.2);
-      line-height: 1;
-      margin-bottom: 28px;
+      font-size: 72px; font-weight: 300;
+      color: rgba(200,168,107,0.2); line-height: 1; margin-bottom: 28px;
     }
     .process__step h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 12px;
+      font-size: 22px; font-weight: 400;
+      color: var(--white); margin-bottom: 12px;
     }
-    .process__step p {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(253,250,247,0.5);
-      line-height: 1.8;
-    }
+    .process__step p { font-size: 14px; font-weight: 300; color: rgba(253,250,247,0.5); line-height: 1.8; }
 
     /* ─── COMPARISON ─── */
     .comparison { background: var(--sand); }
-    .compare__table {
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid var(--sand-dark);
-    }
+    .compare__table { border-radius: 4px; overflow: hidden; border: 1px solid var(--sand-dark); }
     .compare__header {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      background: var(--midnight);
-      padding: 20px 32px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      background: var(--midnight); padding: 20px 32px;
     }
     .compare__header span {
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(253,250,247,0.6);
+      font-size: 12px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(253,250,247,0.6);
     }
     .compare__header span.highlight { color: var(--accent); }
     .compare__row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
       padding: 20px 32px;
       border-bottom: 1px solid var(--sand-dark);
-      background: var(--white);
-      align-items: center;
+      background: var(--white); align-items: center;
       transition: background 0.2s;
     }
     .compare__row:hover { background: var(--sand); }
     .compare__row:last-child { border-bottom: none; }
-    .compare__row .feature {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-body);
-    }
-    .compare__row .check {
-      font-size: 20px;
-      text-align: center;
-    }
+    .compare__row .feature { font-size: 15px; font-weight: 300; color: var(--text-body); }
+    .compare__row .check { font-size: 20px; text-align: center; }
     .check.yes { color: #4caf81; }
     .check.no { color: #e07070; }
     .check.maybe { color: var(--clay); }
 
     /* ─── TESTIMONIALS ─── */
     .testimonials { background: var(--white); }
-    .testi__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+    .testi__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .testi__card {
-      border: 1px solid var(--sand-dark);
-      border-radius: 4px;
+      border: 1px solid var(--sand-dark); border-radius: 4px;
       padding: 40px 32px;
-      position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .testi__card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(42,74,94,0.1);
-    }
+    .testi__card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(42,74,94,0.1); }
     .testi__quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 80px;
-      font-weight: 300;
-      color: var(--sand-dark);
-      line-height: 0.6;
-      margin-bottom: 20px;
+      font-size: 80px; font-weight: 300;
+      color: var(--sand-dark); line-height: 0.6; margin-bottom: 20px;
     }
-    .testi__text {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--text-body);
-      margin-bottom: 28px;
-      font-style: italic;
-    }
-    .testi__author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .testi__text { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-body); margin-bottom: 28px; font-style: italic; }
+    .testi__author { display: flex; align-items: center; gap: 14px; }
     .testi__avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       background: var(--sea);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
     }
-    .testi__name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--midnight);
-    }
-    .testi__location {
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--text-light);
-    }
+    .testi__name { font-size: 14px; font-weight: 500; color: var(--midnight); }
+    .testi__location { font-size: 12px; font-weight: 300; color: var(--text-light); }
 
     /* ─── CTA FINAL ─── */
     .cta-section {
-      background: var(--sea);
-      padding: 120px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      background: var(--sea); padding: 120px 40px;
+      text-align: center; position: relative; overflow: hidden;
     }
     .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(42,74,94,0) 0%, rgba(17,24,32,0.5) 100%);
     }
     .cta-section__inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
     .cta-section .section__tag { color: var(--accent); margin-bottom: 24px; }
     .cta-section__title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 6vw, 80px);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.05;
-      margin-bottom: 24px;
+      font-size: clamp(40px, 6vw, 80px); font-weight: 300;
+      color: var(--white); line-height: 1.05; margin-bottom: 24px;
     }
     .cta-section__title em { font-style: italic; color: var(--accent); }
     .cta-section__sub {
-      font-size: 17px;
-      font-weight: 300;
-      color: rgba(253,250,247,0.65);
-      line-height: 1.7;
-      margin-bottom: 52px;
+      font-size: 17px; font-weight: 300;
+      color: rgba(253,250,247,0.65); line-height: 1.7; margin-bottom: 52px;
     }
     .cta-form {
-      display: flex;
-      gap: 12px;
-      max-width: 480px;
-      margin: 0 auto;
-      flex-wrap: wrap;
+      display: flex; gap: 12px;
+      max-width: 480px; margin: 0 auto; flex-wrap: wrap;
     }
     .cta-form input {
-      flex: 1;
-      min-width: 240px;
+      flex: 1; min-width: 240px;
       padding: 16px 22px;
       border: 1px solid rgba(255,255,255,0.25);
       background: rgba(255,255,255,0.08);
       color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      border-radius: 4px;
-      outline: none;
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      border-radius: 4px; outline: none;
       transition: border-color 0.2s;
     }
     .cta-form input::placeholder { color: rgba(255,255,255,0.4); }
     .cta-form input:focus { border-color: var(--accent); }
-    .cta-form .btn-primary { white-space: nowrap; }
-
     .cta__trust {
-      margin-top: 24px;
-      font-size: 12px;
-      color: rgba(253,250,247,0.4);
-      letter-spacing: 0.05em;
-    }
-
-    .cta__divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      max-width: 480px;
-      margin: 24px auto 20px;
-      color: rgba(253,250,247,0.35);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .cta__divider::before,
-    .cta__divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(253,250,247,0.15);
-    }
-
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #25D366;
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      padding: 16px 40px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    }
-    .btn-whatsapp:hover {
-      background: #20bc5a;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(37,211,102,0.35);
+      margin-top: 24px; font-size: 12px;
+      color: rgba(253,250,247,0.4); letter-spacing: 0.05em;
     }
 
     /* ─── ANIMATIONS ─── */
@@ -665,19 +469,11 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50%       { opacity: 0.8; transform: scaleY(1.2); }
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 0.8; }
     }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -686,23 +482,21 @@
       .benefits__card-small { position: static; margin-top: 20px; width: auto; }
       .process__steps { grid-template-columns: 1fr 1fr; }
       .testi__grid { grid-template-columns: 1fr; }
-      .compare__table { overflow-x: auto; }
     }
     @media (max-width: 600px) {
       section { padding: 72px 24px; }
-      .hero__content { padding: 100px 24px 80px; }
+      .hero__content { padding: 36px 24px 80px; }
       .process__steps { grid-template-columns: 1fr; }
       .pain__callout { padding: 36px 28px; }
     }
   </style>
 
-  <!-- Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Wix Gemini",
-    "description": "Gestión profesional de alquiler vacacional en Mallorca",
+    "description": "Gestión profesional de alquiler vacacional en Torremolinos",
     "areaServed": "Torremolinos",
     "serviceType": "Gestión de alquiler vacacional"
   }
@@ -710,43 +504,30 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════
-     HERO
-═══════════════════════════════ -->
+<!-- HERO -->
 <section class="hero" aria-label="Inicio">
   <div class="hero__bg"></div>
   <div class="hero__noise"></div>
   <div class="hero__line"></div>
-
   <div class="hero__content">
     <div class="hero__badge">Gestión Vacacional · Torremolinos</div>
-
     <h1 class="hero__title">
       Tu propiedad,<br />
       <em>sin el peso</em><br />
       de gestionarla.
     </h1>
-
     <p class="hero__subtitle">
       Convertimos tu inmueble en una fuente de ingresos optimizada, mientras tú disfrutas de la tranquilidad que mereces. Sin llamadas a medianoche, sin imprevistos, sin estrés.
     </p>
-
     <div class="hero__ctas">
-      <a href="#contacto" class="btn-primary">
-        Quiero que me gestionen →
-      </a>
-      <a href="#como-funciona" class="btn-ghost">
-        ¿Cómo funciona?
-      </a>
+      <a href="#contacto" class="btn-primary">Quiero que me gestionen →</a>
+      <a href="#como-funciona" class="btn-ghost">¿Cómo funciona?</a>
     </div>
   </div>
-
   <div class="hero__scroll">Descubre más</div>
 </section>
 
-<!-- ═══════════════════════════════
-     STATS
-═══════════════════════════════ -->
+<!-- STATS -->
 <div class="stats" aria-label="Cifras clave">
   <div class="stats__inner">
     <div class="reveal">
@@ -768,9 +549,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     DOLORES – GESTIÓN PROPIA
-═══════════════════════════════ -->
+<!-- DOLORES -->
 <section class="pain" id="dolores" aria-labelledby="pain-title">
   <div class="section__inner">
     <p class="section__tag reveal">El problema</p>
@@ -780,7 +559,6 @@
     <p class="section__lead reveal">
       Lo que parece una fuente de ingresos pasiva se convierte rápidamente en un segundo empleo. ¿Te suena alguna de estas situaciones?
     </p>
-
     <div class="pain__grid">
       <div class="pain__card reveal">
         <div class="pain__icon">📲</div>
@@ -813,7 +591,6 @@
         <p>Check-ins, check-outs, acogidas presenciales, key-boxes... La logística de cada cambio de huésped es más compleja de lo que parece.</p>
       </div>
     </div>
-
     <div class="pain__callout reveal">
       <p>
         ¿Cuántas horas a la semana dedicas a tu propiedad? Esas horas tienen un valor.
@@ -824,9 +601,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     BENEFICIOS – TRABAJAR CON NOSOTROS
-═══════════════════════════════ -->
+<!-- BENEFICIOS -->
 <section class="benefits" id="beneficios" aria-labelledby="benefits-title">
   <div class="section__inner">
     <div class="benefits__layout">
@@ -836,9 +611,8 @@
           Todo lo que<br /><em>necesita tu propiedad,</em><br />sin que muevas un dedo.
         </h2>
         <p class="section__lead reveal" style="margin-bottom:40px;">
-          Wix Gemini gestiona cada aspecto de tu alquiler vacacional en Mallorca con un estándar de excelencia que se traduce en más ingresos y cero preocupaciones.
+          Gestionamos cada aspecto de tu alquiler vacacional en Torremolinos con un estándar de excelencia que se traduce en más ingresos y cero preocupaciones.
         </p>
-
         <ul class="benefits__list">
           <li class="reveal">
             <div class="b-icon">💰</div>
@@ -877,7 +651,6 @@
           </li>
         </ul>
       </div>
-
       <div class="benefits__visual reveal">
         <div class="benefits__card-big">
           <div class="big-num">+35%</div>
@@ -894,9 +667,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     CÓMO FUNCIONA
-═══════════════════════════════ -->
+<!-- PROCESO -->
 <section class="process" id="como-funciona" aria-labelledby="process-title">
   <div class="section__inner">
     <p class="section__tag reveal">El proceso</p>
@@ -906,7 +677,6 @@
     <p class="section__lead reveal">
       Ponemos en marcha la gestión de tu propiedad de forma ágil y sin complicaciones.
     </p>
-
     <div class="process__steps">
       <div class="process__step reveal">
         <div class="process__step-num">01</div>
@@ -932,9 +702,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     COMPARATIVA
-═══════════════════════════════ -->
+<!-- COMPARATIVA -->
 <section class="comparison" aria-labelledby="comp-title">
   <div class="section__inner">
     <p class="section__tag reveal">La diferencia</p>
@@ -942,7 +710,6 @@
       ¿Gestionarlo tú o <em>confiar en expertos?</em>
     </h2>
     <p class="section__lead reveal">Compara lo que implica cada opción y decide con claridad.</p>
-
     <div class="compare__table reveal">
       <div class="compare__header">
         <span></span>
@@ -993,20 +760,17 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     TESTIMONIALES
-═══════════════════════════════ -->
+<!-- TESTIMONIALES -->
 <section class="testimonials" aria-labelledby="testi-title">
   <div class="section__inner">
     <p class="section__tag reveal">Propietarios reales</p>
     <h2 class="section__title reveal" id="testi-title">
       Lo que dicen quienes<br /><em>ya dieron el paso.</em>
     </h2>
-
     <div class="testi__grid">
       <div class="testi__card reveal">
         <div class="testi__quote">"</div>
-        <p class="testi__text">Llevaba dos años gestionando yo mismo y pensaba que lo hacía bien. Después de tres meses con Wix Gemini ingreso un 40% más y no recibo ni una llamada. Ojalá hubiera dado el paso antes.</p>
+        <p class="testi__text">Llevaba dos años gestionando yo mismo y pensaba que lo hacía bien. Después de tres meses ingreso un 40% más y no recibo ni una llamada. Ojalá hubiera dado el paso antes.</p>
         <div class="testi__author">
           <div class="testi__avatar">🏖️</div>
           <div>
@@ -1017,7 +781,7 @@
       </div>
       <div class="testi__card reveal">
         <div class="testi__quote">"</div>
-        <p class="testi__text">Tengo mi propiedad en Torremolinos pero vivo en Madrid. Era imposible gestionarla bien desde lejos. Wix Gemini lo hace todo con una transparencia total. Cada mes recibo mi informe y mi transferencia.</p>
+        <p class="testi__text">Tengo mi propiedad en Torremolinos pero vivo en Madrid. Era imposible gestionarla bien desde lejos. Lo hacen todo con una transparencia total. Cada mes recibo mi informe y mi transferencia.</p>
         <div class="testi__author">
           <div class="testi__avatar">🌿</div>
           <div>
@@ -1028,7 +792,7 @@
       </div>
       <div class="testi__card reveal">
         <div class="testi__quote">"</div>
-        <p class="testi__text">Probé con otro gestor antes y fue un desastre. Con Wix Gemini la comunicación es impecable, los huéspedes siempre dejan 5 estrellas y mis ingresos se han estabilizado muy por encima de lo anterior.</p>
+        <p class="testi__text">Probé con otro gestor antes y fue un desastre. Aquí la comunicación es impecable, los huéspedes siempre dejan 5 estrellas y mis ingresos se han estabilizado muy por encima de antes.</p>
         <div class="testi__author">
           <div class="testi__avatar">⚓</div>
           <div>
@@ -1041,9 +805,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════
-     CTA FINAL
-═══════════════════════════════ -->
+<!-- CTA FINAL -->
 <section class="cta-section" id="contacto" aria-labelledby="cta-title">
   <div class="cta-section__inner">
     <p class="section__tag reveal">Empieza hoy</p>
@@ -1053,29 +815,15 @@
     <p class="cta-section__sub reveal">
       Solicita tu análisis gratuito. Sin compromiso, sin letra pequeña. En menos de 48 horas te decimos exactamente cuánto puedes ganar con nosotros.
     </p>
-
     <form class="cta-form reveal" onsubmit="handleSubmit(event)" novalidate>
       <input type="email" name="email" placeholder="Tu correo electrónico" required aria-label="Tu correo electrónico" />
       <button type="submit" class="btn-primary">Análisis gratuito →</button>
     </form>
-
-    <div class="cta__divider reveal">
-      <span>o si lo prefieres</span>
-    </div>
-
-    <a href="https://wa.me/34600000000?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20en%20Torremolinos" class="btn-whatsapp reveal" target="_blank" rel="noopener">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      Escríbenos por WhatsApp
-    </a>
-
     <p class="cta__trust reveal">Sin spam. Sin compromisos. Solo información útil sobre tu propiedad.</p>
   </div>
 </section>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1087,7 +835,6 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Form
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
