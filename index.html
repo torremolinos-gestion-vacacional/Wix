@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Esto es clave para que WhatsApp acepte la conexión desde GitHub -->
+    <meta name="referrer" content="no-referrer">
+    
+    <title>Gestión Apartamentos Torremolinos</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, .serif { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        .bg-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                        url('https://static.wixstatic.com/media/4e283a_04c77debf6024a40ae0de368d97895aa~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900">
+
+    <!-- Hero Section -->
+    <section class="relative bg-hero py-24 text-white lg:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl">
+                ¿Tu apartamento en Torremolinos es una <span class="text-orange-500 italic">mina de oro</span> o una <span class="text-red-500 underline decoration-wavy">pesadilla</span>?
+            </h1>
+            <p class="mx-auto mb-10 max-w-2xl text-lg text-neutral-300 sm:text-xl">
+                Gestionar tu propio alquiler vacacional te está robando la vida. Deja de ser un esclavo de las 3:00 AM y empieza a ganar dinero de verdad.
+            </p>
+            <div class="flex flex-col justify-center items-center gap-4 sm:flex-row">
+                
+                <!-- ENLACE WHATSAPP: Formato wa.me puro -->
+                <a href="https://wa.me/34615834991" 
+                   target="_blank" 
+                   class="inline-flex items-center justify-center rounded-full bg-orange-600 px-8 py-4 text-lg font-bold text-white transition-all hover:bg-orange-700 hover:scale-105 shadow-xl">
+                    <i data-lucide="message-square" class="mr-2 h-5 w-5"></i>
+                    Quiero mi libertad ahora
+                </a>
+                
+                <!-- BOTÓN SCROLL -->
+                <a href="#dolor" 
+                   class="inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20">
+                    Ver por qué estás perdiendo dinero
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section id="dolor" class="py-20 lg:py-32">
+        <div class="container mx-auto px-6">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-3xl font-bold sm:text-4xl lg:text-5xl">Lo que nadie te cuenta de gestionar tú mismo</h2>
+                <p class="text-lg text-neutral-600">El "ahorro" de no contratar a un gestor te está saliendo carísimo.</p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="rounded-3xl bg-white p-8 shadow-sm border border-neutral-100">
+                    <div class="mb-6"><i data-lucide="shield-alert" class="h-10 w-10 text-red-600"></i></div>
+                    <h3 class="mb-3 text-xl font-bold">Multas de hasta 150.000€</h3>
+                    <p class="text-neutral-600">La normativa en Andalucía es un campo de minas. Un error en el registro de viajeros o en la licencia y la Junta no tendrá piedad.</p>
+                </div>
+                <div class="rounded-3xl bg-white p-8 shadow-sm border border-neutral-100">
+                    <div class="mb-6"><i data-lucide="clock" class="h-10 w-10 text-orange-600"></i></div>
+                    <h3 class="mb-3 text-xl font-bold">Esclavo 24/7</h3>
+                    <p class="text-neutral-600">¿Llamadas a las 3 AM por el Wi-Fi? ¿Check-ins con 4 horas de retraso? Tu tiempo vale más que un par de euros.</p>
+                </div>
+                <div class="rounded-3xl bg-white p-8 shadow-sm border border-neutral-100">
+                    <div class="mb-6"><i data-lucide="user-x" class="h-10 w-10 text-red-600"></i></div>
+                    <h3 class="mb-3 text-xl font-bold">Huéspedes de Pesadilla</h3>
+                    <p class="text-neutral-600">Fiestas ilegales, destrozos y vecinos enfadados que pueden hacer que te cierren el negocio para siempre.</p>
+                </div>
+                <div class="rounded-3xl bg-white p-8 shadow-sm border border-neutral-100">
+                    <div class="mb-6"><i data-lucide="gavel" class="h-10 w-10 text-orange-600"></i></div>
+                    <h3 class="mb-3 text-xl font-bold">Vacío Legal y Fiscal</h3>
+                    <p class="text-neutral-600">Si no optimizas tus impuestos y no cumples con la ley de datos, Hacienda y la Policía llamarán a tu puerta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="bg-neutral-900 py-20 text-white lg:py-32">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col items-center lg:flex-row lg:gap-16">
+                <div class="mb-12 lg:mb-0 lg:w-1/2">
+                    <h2 class="mb-6 text-3xl font-bold sm:text-4xl lg:text-5xl">
+                        Recupera tu vida. <br>
+                        <span class="text-orange-500">Nosotros nos quemamos por ti.</span>
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="mr-3 mt-1 h-5 w-5 text-orange-500"></i><span>Alta en la Junta de Andalucía GRATIS e inmediata.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="mr-3 mt-1 h-5 w-5 text-orange-500"></i><span>Sin permanencia: si no estás contento, te vas.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="mr-3 mt-1 h-5 w-5 text-orange-500"></i><span>Lavandería propia en Torremolinos.</span></li>
+                        <li class="flex items-start"><i data-lucide="check-circle-2" class="mr-3 mt-1 h-5 w-5 text-orange-500"></i><span>Comunicación obligatoria a Policía (Hospedajes).</span></li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://static.wixstatic.com/media/4e283a_04c77debf6024a40ae0de368d97895aa~mv2.jpg" alt="Apartamento" class="rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Final -->
+    <section class="py-20 lg:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="mb-12 text-4xl font-bold">Contacta ahora</h2>
+            <div class="grid gap-8 md:grid-cols-3">
+                
+                <a href="https://wa.me/34615834991" target="_blank" class="flex flex-col items-center group">
+                    <div class="mb-4 inline-block rounded-full bg-orange-100 p-4 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors"><i data-lucide="phone"></i></div>
+                    <p class="text-xl font-bold">+34 615 834 991</p>
+                </a>
+
+                <div>
+                    <div class="mb-4 inline-block rounded-full bg-orange-100 p-4 text-orange-600"><i data-lucide="mail"></i></div>
+                    <p class="text-xl font-bold break-all">apartamento.booking@gmail.com</p>
+                </div>
+                <div>
+                    <div class="mb-4 inline-block rounded-full bg-orange-100 p-4 text-orange-600"><i data-lucide="map-pin"></i></div>
+                    <p class="text-xl font-bold">C. Campillos, 4, Torremolinos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/34615834991" 
+       target="_blank" 
+       class="fixed bottom-8 right-8 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition-all hover:scale-110">
+        <i data-lucide="message-square" class="h-8 w-8"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
