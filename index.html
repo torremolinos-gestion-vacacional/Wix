@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- IMPORTANTE: No usamos meta-referrer aquí para dejar que el navegador decida -->
+    <!-- IMPORTANTE: Esta línea ayuda a que el navegador no envíe información "sospechosa" a WhatsApp -->
+    <meta name="referrer" content="no-referrer">
     
     <title>Gestión Apartamentos Torremolinos</title>
     
@@ -41,15 +42,18 @@
             </p>
             <div class="flex flex-col justify-center items-center gap-4 sm:flex-row">
                 
-                <!-- BOTÓN WHATSAPP: Usamos rel="opener" (esto es lo que soluciona el error COOP) -->
+                <!-- BOTÓN WHATSAPP: Usamos rel="noreferrer" y referrerpolicy="no-referrer" -->
+                <!-- Esto hace que el enlace sea idéntico al que te funcionó en Wix -->
                 <a href="https://wa.me/34615834991" 
                    target="_blank" 
-                   rel="opener"
+                   rel="noreferrer"
+                   referrerpolicy="no-referrer"
                    class="inline-flex items-center justify-center rounded-full bg-orange-600 px-8 py-4 text-lg font-bold text-white transition-all hover:bg-orange-700 hover:scale-105 shadow-xl">
                     <i data-lucide="message-square" class="mr-2 h-5 w-5"></i>
                     Quiero mi libertad ahora
                 </a>
                 
+                <!-- BOTÓN SCROLL -->
                 <button onclick="document.getElementById('dolor').scrollIntoView({behavior: 'smooth'})" 
                         class="inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 text-lg font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20">
                     Ver por qué estás perdiendo dinero
@@ -120,7 +124,7 @@
             <h2 class="mb-12 text-4xl font-bold">Contacta ahora</h2>
             <div class="grid gap-8 md:grid-cols-3">
                 
-                <a href="https://wa.me/34615834991" target="_blank" rel="opener" class="flex flex-col items-center group">
+                <a href="https://wa.me/34615834991" target="_blank" rel="noreferrer" referrerpolicy="no-referrer" class="flex flex-col items-center group">
                     <div class="mb-4 inline-block rounded-full bg-orange-100 p-4 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors"><i data-lucide="phone"></i></div>
                     <p class="text-xl font-bold">+34 615 834 991</p>
                 </a>
@@ -140,7 +144,8 @@
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/34615834991" 
        target="_blank" 
-       rel="opener"
+       rel="noreferrer"
+       referrerpolicy="no-referrer"
        class="fixed bottom-8 right-8 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition-all hover:scale-110">
         <i data-lucide="message-square" class="h-8 w-8"></i>
     </a>
