@@ -3,133 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Apartamentos Turísticos en Torremolinos</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Gestión integral de alquiler vacacional en Torremolinos. Maximizamos tus ingresos en Airbnb y Booking.">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    <title>Gestión de Apartamentos Turísticos Torremolinos</title>
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: #1a1a1a; 
-            margin: 0; 
-            padding: 0;
-            overflow-x: hidden; /* Evita barra horizontal */
-        }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .bg-hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
-                        url('https://static.wixstatic.com/media/4e283a_04c77debf6024a40ae0de368d97895aa~mv2.jpg');
-            background-size: cover; 
-            background-position: center;
-            padding: 80px 20px; /* Altura fija con padding, no vh */
-        }
-        
-        .pain-card { border-left: 4px solid #f27d26; background: #fff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f7f6; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .pain-points { background: #fff5f5; border-left: 5px solid #e74c3c; padding: 15px; margin: 20px 0; }
+        .solution { background: #f0f9ff; border-left: 5px solid #3498db; padding: 15px; margin: 20px 0; }
+        .highlight { color: #e74c3c; font-weight: bold; }
+        .cta-button { display: block; width: fit-content; margin: 30px auto; padding: 15px 30px; background: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.2em; transition: 0.3s; }
+        .cta-button:hover { background: #219150; transform: scale(1.05); }
+        ul { list-style-type: none; padding: 0; }
+        li::before { content: "✅ "; }
     </style>
 </head>
 <body>
-
-    <!-- HERO SECTION -->
-    <section class="bg-hero text-white text-center">
-        <div class="max-w-4xl mx-auto">
-            <p class="uppercase tracking-widest text-xs font-bold text-orange-400 mb-4">Costa del Sol • Gestión de Activos</p>
-            <h1 class="text-4xl md:text-6xl font-black italic mb-6 leading-tight">
-                ¿Tu apartamento es una <span class="text-orange-500">Mina de Oro</span> o una <span class="text-red-500">Pesadilla?</span>
-            </h1>
-            <p class="text-lg md:text-xl text-neutral-200 mb-8 max-w-2xl mx-auto font-light">
-                Gestionamos tu alquiler vacacional en Torremolinos para que tú solo veas los ingresos.
-            </p>
-            <a href="#contacto" class="inline-block bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-700 transition-all">
-                Quiero Rentabilidad Ahora
-            </a>
+    <div class="container">
+        <h1>¿Tu alquiler vacacional te quita el sueño?</h1>
+        
+        <div class="pain-points">
+            <p><strong>Gestionar un apartamento no es "dinero fácil":</strong> es lidiar con limpiezas de última hora, lavandería interminable, multas por registros mal hechos y llamadas de huéspedes a las 3 AM por una llave perdida. <strong>¿Realmente vale la pena ese estrés?</strong></p>
         </div>
-    </section>
 
-    <!-- SECCIÓN DE DOLOR -->
-    <section class="py-16 bg-neutral-50 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-black italic mb-4">Lo que nadie te cuenta de <span class="text-orange-600">gestionar tú mismo</span></h2>
-            </div>
+        <h2>Nosotros nos encargamos de TODO por solo un 15%</h2>
+        <p>En <strong>Gestión Apartamentos Turísticos Torremolinos</strong>, recuperamos tu tiempo y maximizamos tus ingresos sin que muevas un dedo.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="pain-card p-6 shadow-sm rounded-r-xl">
-                    <h3 class="text-lg font-bold flex items-center text-red-600 mb-2">
-                        <i data-lucide="alert-triangle" class="mr-2 w-5 h-5"></i> Multas de la Junta
-                    </h3>
-                    <p class="text-sm text-neutral-600">Un error en el registro de viajeros o en la licencia puede costarte hasta 150.000€.</p>
-                </div>
-                <div class="pain-card p-6 shadow-sm rounded-r-xl">
-                    <h3 class="text-lg font-bold flex items-center text-red-600 mb-2">
-                        <i data-lucide="clock" class="mr-2 w-5 h-5"></i> Esclavo 24/7
-                    </h3>
-                    <p class="text-sm text-neutral-600">¿Llamadas nocturnas por el Wi-Fi o llaves perdidas? Tu tiempo vale más que eso.</p>
-                </div>
-                <div class="pain-card p-6 shadow-sm rounded-r-xl">
-                    <h3 class="text-lg font-bold flex items-center text-red-600 mb-2">
-                        <i data-lucide="trending-down" class="mr-2 w-5 h-5"></i> Precios Bajos
-                    </h3>
-                    <p class="text-sm text-neutral-600">Si no ajustas precios a diario, estás perdiendo dinero cada noche.</p>
-                </div>
-                <div class="pain-card p-6 shadow-sm rounded-r-xl">
-                    <h3 class="text-lg font-bold flex items-center text-red-600 mb-2">
-                        <i data-lucide="user-x" class="mr-2 w-5 h-5"></i> Huéspedes Problemáticos
-                    </h3>
-                    <p class="text-sm text-neutral-600">Fiestas y destrozos que pueden hacer que te cierren el negocio.</p>
-                </div>
-            </div>
+        <div class="solution">
+            <ul>
+                <li><strong>Licencia Turística GRATIS e inmediata:</strong> La tramitamos al momento en la Junta de Andalucía.</li>
+                <li><strong>Limpieza y Lavandería propia:</strong> Controlamos la higiene sin depender de terceros.</li>
+                <li><strong>Check-in y Atención 24/7:</strong> Tus huéspedes siempre atendidos, tú siempre tranquilo.</li>
+                <li><strong>Sin Permanencia:</strong> No te atamos. Nos quedamos contigo por resultados, no por contrato.</li>
+                <li><strong>Optimización de Ingresos:</strong> Ajustamos precios para que ganes más que haciéndolo tú solo.</li>
+            </ul>
         </div>
-    </section>
 
-    <!-- SEO SECTION -->
-    <section class="py-16 px-6 bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-                <h2 class="text-3xl md:text-5xl font-black italic mb-6">Expertos en <span class="text-orange-600">Gestión Vacacional</span></h2>
-                <p class="text-neutral-600 mb-6">
-                    Somos especialistas en la <strong>explotación de viviendas turísticas en Torremolinos</strong>. Nos encargamos de todo: fotografía, posicionamiento en Airbnb/Booking, limpieza industrial y mantenimiento.
-                </p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex items-center text-sm font-bold"><i data-lucide="check" class="text-orange-600 mr-2 w-4 h-4"></i> Alta en la Junta</div>
-                    <div class="flex items-center text-sm font-bold"><i data-lucide="check" class="text-orange-600 mr-2 w-4 h-4"></i> Lavandería Propia</div>
-                    <div class="flex items-center text-sm font-bold"><i data-lucide="check" class="text-orange-600 mr-2 w-4 h-4"></i> Registro Policía</div>
-                    <div class="flex items-center text-sm font-bold"><i data-lucide="check" class="text-orange-600 mr-2 w-4 h-4"></i> Sin Permanencia</div>
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <img src="https://static.wixstatic.com/media/4e283a_04c77debf6024a40ae0de368d97895aa~mv2.jpg" class="rounded-2xl shadow-xl">
-            </div>
-        </div>
-    </section>
+        <p style="text-align: center; font-size: 1.1em;">Ubicados en <strong>Calle Campillos 4</strong>, llegamos a cualquier punto de Torremolinos en menos de 10 minutos.</p>
 
-    <!-- CONTACT SECTION -->
-    <section id="contacto" class="py-16 bg-neutral-900 text-white text-center px-6">
-        <h2 class="text-4xl font-black italic mb-8">Hablemos de <span class="text-orange-600">tu libertad.</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div class="p-6 border border-white/10 rounded-2xl bg-white/5">
-                <i data-lucide="phone" class="w-6 h-6 text-orange-600 mx-auto mb-3"></i>
-                <p class="text-xl font-bold">+34 615 834 991</p>
-            </div>
-            <div class="p-6 border border-white/10 rounded-2xl bg-white/5">
-                <i data-lucide="mail" class="w-6 h-6 text-orange-600 mx-auto mb-3"></i>
-                <p class="text-sm font-bold break-all">apartamento.booking@gmail.com</p>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        lucide.createIcons();
-    </script>
+        <a href="https://wa.me" class="cta-button">¡Quiero delegar mi gestión ahora!</a>
+    </div>
 </body>
 </html>
