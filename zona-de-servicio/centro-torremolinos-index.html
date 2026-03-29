@@ -1,1 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Apartamentos en el Centro de Torremolinos | Rentabilidad Vacacional</title>
+    <meta name="description" content="Gestión integral de alquiler vacacional en el Centro de Torremolinos. Maximizamos tus ingresos en la zona de mayor demanda urbana y comercial.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#F27D26',
+                        dark: '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        html { scroll-behavior: smooth; }
+        .selection-primary::selection { background-color: #F27D26; color: white; }
+        .animate-spin-custom { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        body { overflow-x: hidden; width: 100%; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #F27D26; border-radius: 10px; }
+    </style>
+</head>
+<body class="selection-primary bg-[#FDFCFB]">
+    <div id="root"></div>
+
+    <!-- React & Babel CDNs -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const NEIGHBORHOODS = [
+            {
+                id: 'centro',
+                name: 'Centro de Torremolinos',
+                description: 'El corazón latente de la ciudad. Gestionamos apartamentos en el centro con un enfoque en la alta rotación y la demanda constante durante todo el año.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_a53fa378c9694adcb75510312a3900e1~mv2.jpg'
+            }
+        ];
+
+        const Icon = ({ name, className }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, []);
+            return <i data-lucide={name} className={className}></i>;
+        };
+
+        function App() {
+            const [selectedNeighborhood] = useState(NEIGHBORHOODS[0]);
+            const [isSubmitted, setIsSubmitted] = useState(false);
+            const [isSubmitting, setIsSubmitting] = useState(false);
+
+            const services = [
+                { icon: "key", title: "Check-in Urbano", desc: "Gestión ágil de entradas en el centro, ideal para viajeros que buscan comodidad y rapidez." },
+                { icon: "sparkles", title: "Limpieza Profesional", desc: "Mantenemos tu apartamento impecable entre estancias cortas, garantizando siempre la mejor impresión." },
+                { icon: "clock", title: "Soporte 24/7", desc: "Estamos a un paso de tu vivienda para resolver cualquier duda o imprevisto de los huéspedes." },
+                { icon: "wrench", title: "Mantenimiento Ágil", desc: "Reparaciones rápidas para que tu apartamento nunca deje de generar ingresos." },
+                { icon: "trending-up", title: "Precios Dinámicos", desc: "Aprovechamos los eventos locales y la demanda del centro para subir tus tarifas." },
+                { icon: "shield-check", title: "Seguridad Legal", desc: "Registro de viajeros y cumplimiento estricto de la normativa de la Junta de Andalucía." },
+                { icon: "camera", title: "Marketing Visual", desc: "Fotografía que resalta la ubicación y el estilo de vida urbano de tu propiedad." },
+                { icon: "scale", title: "Licencias Turísticas", desc: "Tramitamos tu licencia de forma gratuita para que empieces a alquilar cuanto antes." }
+            ];
+
+            const risks = [
+                { title: "Ruidos y Vecindad", desc: "El centro es vibrante, pero una mala gestión de ruidos puede causar problemas con los vecinos. Nosotros mediamos.", icon: "volume-2" },
+                { title: "Desgaste por Alta Rotación", desc: "Los apartamentos céntricos suelen tener más rotación. Sin control, el desgaste es mucho mayor.", icon: "refresh-cw" },
+                { title: "Pérdida de Oportunidades", desc: "No ajustar precios en fechas clave del centro (ferias, eventos) supone perder mucho dinero.", icon: "dollar-sign" },
+                { title: "Multas Administrativas", desc: "El centro es la zona más vigilada. No cumplir con el registro de policía es un riesgo inasumible.", icon: "alert-octagon" },
+                { title: "Gestión de Llaves", desc: "Perder tiempo entregando llaves en el centro es ineficiente. Nosotros automatizamos o gestionamos el proceso.", icon: "key" },
+                { title: "Baja Puntuación", desc: "Un apartamento en el centro debe estar perfecto. Una mala reseña por limpieza hunde tu visibilidad.", icon: "thumbs-down" }
+            ];
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+                const formData = new FormData(e.currentTarget);
+                try {
+                    const response = await fetch('https://formspree.io/f/mjgpgdgw', {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) setIsSubmitted(true);
+                    else alert('Error al enviar. Inténtalo de nuevo.');
+                } catch (error) {
+                    alert('Error de conexión.');
+                } finally {
+                    setIsSubmitting(false);
+                }
+            };
+
+            return (
+                <div className="min-h-screen bg-[#FDFCFB] text-[#1A1A1A] font-sans overflow-x-hidden">
+                    {/* Header / Nav */}
+                    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between h-16 md:h-20 items-center">
+                                <div className="flex items-center gap-2 md:gap-3">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg md:text-xl">G</div>
+                                    <div className="flex flex-col">
+                                        <span className="text-sm md:text-lg font-bold tracking-tight leading-none">Gestión Apartamentos</span>
+                                        <span className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-semibold">Torremolinos</span>
+                                    </div>
+                                </div>
+                                <a href="#contacto" className="bg-dark text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-semibold hover:bg-primary transition-all">
+                                    Contactar
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <section className="relative pt-8 md:pt-16 pb-16 md:pb-24 overflow-hidden">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                                <div className="order-2 lg:order-1">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-primary text-[10px] md:text-xs font-bold uppercase tracking-wider mb-4 md:mb-6">
+                                        <Icon name="map-pin" className="w-3 h-3" /> Centro de Torremolinos
+                                    </div>
+                                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight mb-4 md:mb-6">
+                                        Gestión de Alquiler Vacacional en el <span className="text-primary">Centro</span>
+                                    </h1>
+                                    <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
+                                        {selectedNeighborhood.description} Aprovecha la ubicación privilegiada de tu vivienda para obtener la máxima rentabilidad con nuestra gestión experta.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 md:gap-4">
+                                        <div className="flex items-center gap-2 bg-white px-3 md:px-4 py-2 rounded-lg shadow-sm border border-gray-100">
+                                            <Icon name="check-circle-2" className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+                                            <span className="text-sm md:text-base font-semibold">15% Comisión</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 bg-white px-3 md:px-4 py-2 rounded-lg shadow-sm border border-gray-100">
+                                            <Icon name="check-circle-2" className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+                                            <span className="text-sm md:text-base font-semibold">Sin Permanencia</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 bg-white px-3 md:px-4 py-2 rounded-lg shadow-sm border border-gray-100">
+                                            <Icon name="check-circle-2" className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+                                            <span className="text-sm md:text-base font-semibold">Licencia Gratis</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="relative order-1 lg:order-2">
+                                    <div className="aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                        <img src={selectedNeighborhood.heroImage} alt={selectedNeighborhood.name} className="w-full h-full object-cover" />
+                                    </div>
+                                    <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white p-4 md:p-6 rounded-xl md:rounded-2xl shadow-xl border border-gray-100 max-w-[180px] md:max-w-[240px]">
+                                        <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                                                <Icon name="trending-up" className="text-primary w-4 h-4 md:w-5 md:h-5" />
+                                            </div>
+                                            <span className="text-xs md:text-sm font-bold">Demanda 365 días</span>
+                                        </div>
+                                        <p className="text-[10px] md:text-xs text-gray-500">El centro no entiende de temporadas. Gestionamos tu propiedad para que rinda todo el año.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Risks Section */}
+                    <section className="py-16 md:py-24 bg-dark text-white">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-12 md:mb-16">
+                                <h2 className="text-3xl md:text-5xl font-bold mb-6 italic font-serif">Evita los Problemas Comunes en el Centro</h2>
+                                <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-lg">
+                                    La gestión urbana requiere rapidez y control. No dejes que los pequeños detalles arruinen tu inversión en el corazón de Torremolinos.
+                                </p>
+                            </div>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                                {risks.map((risk, i) => (
+                                    <div key={i} className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 hover:border-primary transition-all group">
+                                        <Icon name={risk.icon} className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
+                                        <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">{risk.title}</h3>
+                                        <p className="text-gray-400 text-sm md:text-base leading-relaxed">{risk.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="mt-12 md:mt-16 bg-primary p-8 md:p-12 rounded-2xl md:rounded-[3rem] text-center">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4">Tu tranquilidad es nuestra prioridad</h3>
+                                <p className="text-lg md:text-xl mb-8 text-white/90">Nos encargamos de todo para que tú solo veas los resultados en tu cuenta bancaria.</p>
+                                <a href="#contacto" className="bg-white text-dark px-8 md:px-10 py-3 md:py-4 rounded-full font-extrabold text-base md:text-lg hover:shadow-2xl transition-all inline-block">
+                                    Solicitar valoración gratuita
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Authority Section */}
+                    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+                                <div>
+                                    <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 leading-tight">Expertos en el <span className="text-primary">Centro de Torremolinos</span></h2>
+                                    <p className="text-base md:text-lg text-gray-600 mb-8">
+                                        Nuestra oficina en <strong>Calle Campillos, 4</strong> está estratégicamente situada para dar servicio inmediato a todas las viviendas del centro.
+                                    </p>
+                                    <ul className="space-y-4 mb-8">
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle-2" className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
+                                            <span className="text-sm md:text-base text-gray-700 font-medium"><strong>Respuesta Inmediata:</strong> Estamos a minutos de tu propiedad para cualquier necesidad del huésped.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle-2" className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
+                                            <span className="text-sm md:text-base text-gray-700 font-medium"><strong>Conocimiento Local:</strong> Sabemos qué busca el turista que elige el centro y cómo dárselo.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle-2" className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
+                                            <span className="text-sm md:text-base text-gray-700 font-medium"><strong>Gestión de Licencias:</strong> Ponemos tu piso en regla rápidamente y sin coste para ti.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="bg-gray-50 p-8 md:p-10 rounded-2xl md:rounded-[3rem] border border-gray-100">
+                                    <h3 className="text-xl md:text-2xl font-bold mb-6">Rendimiento en el Centro</h3>
+                                    <div className="space-y-6">
+                                        <div className="flex justify-between items-end border-b border-gray-200 pb-4">
+                                            <span className="text-sm md:text-base text-gray-500">Alquiler Larga Temporada</span>
+                                            <span className="text-lg md:text-xl font-bold text-red-500">~850€/mes</span>
+                                        </div>
+                                        <div className="flex justify-between items-end border-b border-gray-200 pb-4">
+                                            <span className="text-sm md:text-base text-gray-500">Nuestra Gestión Vacacional</span>
+                                            <span className="text-lg md:text-xl font-bold text-green-600">~1.450€/mes</span>
+                                        </div>
+                                        <p className="text-[10px] md:text-xs text-gray-400 italic">
+                                            * Estimación basada en un estudio de 1 dormitorio en el centro con buena decoración y optimización de precios.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Contact Form */}
+                    <section id="contacto" className="py-16 md:py-24">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="bg-dark rounded-2xl md:rounded-[3rem] overflow-hidden text-white grid lg:grid-cols-2">
+                                <div className="p-8 md:p-16 lg:p-20">
+                                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 leading-tight">
+                                        ¿Quieres rentabilizar tu piso en el <span className="text-primary">Centro</span>?
+                                    </h2>
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                                <Icon name="phone" className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div><div className="text-xs md:text-sm text-gray-400">Llámanos</div><div className="text-lg md:text-xl font-bold">+34 615 834 991</div></div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                                <Icon name="mail" className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div><div className="text-xs md:text-sm text-gray-400">Email</div><div className="text-lg md:text-xl font-bold break-all">apartamento.booking@gmail.com</div></div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                                <Icon name="map-pin" className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div><div className="text-xs md:text-sm text-gray-400">Oficina</div><div className="text-lg md:text-xl font-bold">C. Campillos, 4, Torremolinos</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-primary p-8 md:p-16 lg:p-20">
+                                    {!isSubmitted ? (
+                                        <form className="space-y-4" onSubmit={handleSubmit}>
+                                            <input type="hidden" name="asunto" value="Interés Gestión Centro" />
+                                            <div>
+                                                <label className="block text-[10px] md:text-xs font-bold mb-1 md:mb-2 uppercase tracking-widest text-white/80">Nombre Completo</label>
+                                                <input required name="nombre" type="text" className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 text-sm md:text-base focus:bg-white/20 focus:outline-none transition-all" placeholder="Tu nombre..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-[10px] md:text-xs font-bold mb-1 md:mb-2 uppercase tracking-widest text-white/80">Teléfono de Contacto</label>
+                                                <input required name="telefono" type="tel" className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 text-sm md:text-base focus:bg-white/20 focus:outline-none transition-all" placeholder="Tu teléfono..." />
+                                            </div>
+                                            <div>
+                                                <label className="block text-[10px] md:text-xs font-bold mb-1 md:mb-2 uppercase tracking-widest text-white/80">Mensaje</label>
+                                                <textarea required name="mensaje" rows="3" className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 text-sm md:text-base focus:bg-white/20 focus:outline-none transition-all" placeholder="Cuéntanos sobre tu propiedad en el centro..."></textarea>
+                                            </div>
+                                            <button disabled={isSubmitting} className="w-full bg-white text-primary py-4 rounded-xl font-bold text-base md:text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                                                {isSubmitting ? 'Enviando...' : 'Solicitar Valoración Gratis'}
+                                            </button>
+                                        </form>
+                                    ) : (
+                                        <div className="text-center py-8 md:py-12">
+                                            <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+                                                <Icon name="check-circle-2" className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+                                            </div>
+                                            <h3 className="text-2xl md:text-3xl font-bold mb-4">¡Mensaje Enviado!</h3>
+                                            <p className="text-sm md:text-base text-white/90">Gracias por contactar. Te llamaremos en breve para analizar el potencial de tu vivienda en el centro de Torremolinos.</p>
+                                            <button onClick={() => setIsSubmitted(false)} className="mt-8 text-white underline text-sm font-semibold">Enviar otro mensaje</button>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    {/* Footer */}
+                    <footer className="py-12 border-t border-gray-100 bg-white">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
