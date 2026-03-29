@@ -4,49 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión Apartamentos Torremolinos - Wix Embed</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
-                    colors: { primary: '#F27D26', dark: '#1A1A1A' }
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#F27D26',
+                        dark: '#1A1A1A',
+                    }
                 }
             }
         }
     </script>
+
     <style>
         html { scroll-behavior: smooth; }
         .selection-primary::selection { background-color: #F27D26; color: white; }
+        .animate-spin-custom { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="selection-primary">
     <div id="root"></div>
+
+    <!-- React & Babel CDNs -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <script type="text/babel">
         const { useState, useEffect } = React;
+
         const NEIGHBORHOODS = [
-            { id: 'la-carihuela', name: 'La Carihuela', description: 'Especialistas en la gestión de apartamentos en el antiguo barrio de pescadores. Maximizamos tus ingresos en la zona con más solera de Torremolinos.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'el-bajondillo', name: 'El Bajondillo', description: 'Gestión integral en el corazón marítimo de Torremolinos. Tu propiedad en El Bajondillo en las mejores manos.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'playamar', name: 'Playamar', description: 'Expertos en rentabilidad vacacional en las exclusivas torres y urbanizaciones de Playamar.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'los-alamos', name: 'Los Álamos', description: 'La zona más joven y dinámica de Torremolinos. Gestionamos tu alojamiento en Los Álamos con tecnología y cercanía.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'montemar', name: 'Montemar', description: 'Gestión de villas y apartamentos de lujo en la zona residencial de Montemar. Exclusividad y resultados.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'el-calvario', name: 'El Calvario', description: 'El encanto del Torremolinos tradicional. Gestionamos tu vivienda en El Calvario para que no te preocupes por nada.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'centro', name: 'Centro de Torremolinos', description: 'Ubicación estratégica, gestión impecable. Sacamos el máximo partido a tu propiedad en el centro de la ciudad.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' },
-            { id: 'el-pinillo', name: 'El Pinillo', description: 'Zona residencial con gran potencial. Gestionamos tu apartamento en El Pinillo con total transparencia.', heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg' }
+            {
+                id: 'la-carihuela',
+                name: 'La Carihuela',
+                description: 'Especialistas en la gestión de apartamentos en el antiguo barrio de pescadores. Maximizamos tus ingresos en la zona con más solera de Torremolinos.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'el-bajondillo',
+                name: 'El Bajondillo',
+                description: 'Gestión integral en el corazón marítimo de Torremolinos. Tu propiedad en El Bajondillo en las mejores manos.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'playamar',
+                name: 'Playamar',
+                description: 'Expertos en rentabilidad vacacional en las exclusivas torres y urbanizaciones de Playamar.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'los-alamos',
+                name: 'Los Álamos',
+                description: 'La zona más joven y dinámica de Torremolinos. Gestionamos tu alojamiento en Los Álamos con tecnología y cercanía.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'montemar',
+                name: 'Montemar',
+                description: 'Gestión de villas y apartamentos de lujo en la zona residencial de Montemar. Exclusividad y resultados.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'el-calvario',
+                name: 'El Calvario',
+                description: 'El encanto del Torremolinos tradicional. Gestionamos tu vivienda en El Calvario para que no te preocupes por nada.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'centro',
+                name: 'Centro de Torremolinos',
+                description: 'Ubicación estratégica, gestión impecable. Sacamos el máximo partido a tu propiedad en el centro de la ciudad.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            },
+            {
+                id: 'el-pinillo',
+                name: 'El Pinillo',
+                description: 'Zona residencial con gran potencial. Gestionamos tu apartamento en El Pinillo con total transparencia.',
+                heroImage: 'https://static.wixstatic.com/media/4e283a_92deb87a6212489bbd7570fcbdd5545f~mv2.jpg'
+            }
         ];
+
         const Icon = ({ name, className }) => {
-            useEffect(() => { lucide.createIcons(); }, []);
+            useEffect(() => {
+                lucide.createIcons();
+            }, []);
             return <i data-lucide={name} className={className}></i>;
         };
+
         function App() {
             const [selectedNeighborhood, setSelectedNeighborhood] = useState(NEIGHBORHOODS[0]);
             const [isSubmitted, setIsSubmitted] = useState(false);
             const [isSubmitting, setIsSubmitting] = useState(false);
+
+            const services = [
+                { icon: "key", title: "Check-in Presencial", desc: "Recibimos a cada huésped y verificamos su identidad en persona." },
+                { icon: "sparkles", title: "Limpieza de Hotel", desc: "Equipo propio formado. Higiene garantizada para las 5 estrellas." },
+                { icon: "clock", title: "Atención 24/7", desc: "Resolvemos dudas y emergencias a cualquier hora. Tú duermes, nosotros trabajamos." },
+                { icon: "wrench", title: "Mantenimiento Express", desc: "Técnicos locales listos para actuar ante cualquier avería al instante." },
+                { icon: "trending-up", title: "Precios Inteligentes", desc: "Algoritmos que ajustan el precio según la demanda real en Torremolinos." },
+                { icon: "shield-check", title: "Cumplimiento Legal", desc: "Registro inmediato en la Policía y gestión de tasas turísticas." },
+                { icon: "camera", title: "Fotos Profesionales", desc: "Fotografía de alto impacto para destacar en Airbnb y Booking." },
+                { icon: "scale", title: "Licencia VFT Gratis", desc: "Tramitamos tu licencia ante la Junta de Andalucía sin coste para ti." }
+            ];
+
+            const risks = [
+                { title: "Multas de hasta 150.000€", desc: "La Junta de Andalucía ha endurecido las inspecciones. Un error legal puede arruinarte.", icon: "alert-triangle" },
+                { title: "Pérdida de la Licencia", desc: "En Torremolinos, una queja de vecinos puede suponer la revocación de tu licencia.", icon: "lock" },
+                { title: "El 'Check-in' de Pesadilla", desc: "¿Vas a esperar a las 2 AM a un huésped con retraso? Nosotros lo hacemos por ti.", icon: "clock" },
+                { title: "Destrozos y Vandalismo", desc: "Sin filtro profesional, te arriesgas a fiestas ilegales y daños irreparables.", icon: "shield-check" },
+                { title: "Limpiezas Deficientes", desc: "Una mala reseña por higiene te hunde en el algoritmo. La limpieza casera no basta.", icon: "sparkles" },
+                { title: "Precios Desfasados", desc: "Si no cambias precios según eventos locales (Pride, Feria), estás perdiendo dinero.", icon: "bar-chart-3" }
+            ];
+
             const handleSubmit = async (e) => {
                 e.preventDefault();
                 setIsSubmitting(true);
@@ -59,10 +144,16 @@
                     });
                     if (response.ok) setIsSubmitted(true);
                     else alert('Error al enviar. Inténtalo de nuevo.');
-                } catch (error) { alert('Error de conexión.'); } finally { setIsSubmitting(false); }
+                } catch (error) {
+                    alert('Error de conexión.');
+                } finally {
+                    setIsSubmitting(false);
+                }
             };
+
             return (
                 <div className="min-h-screen bg-[#FDFCFB] text-[#1A1A1A] font-sans">
+                    {/* Hero Section */}
                     <section className="relative pt-8 md:pt-12 pb-16 md:pb-24 overflow-hidden">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -95,28 +186,99 @@
                             </div>
                         </div>
                     </section>
+
+                    {/* Risks Section (The "Scare" factor) */}
                     <section className="py-16 md:py-24 bg-dark text-white">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="text-center mb-12 md:mb-16">
-                                <h2 className="text-2xl md:text-4xl font-bold mb-4 italic font-serif">¿Gestionas tu alojamiento tú mismo?</h2>
-                                <p className="text-gray-400 text-sm md:text-base">La gestión vacacional en Torremolinos no es un hobby, es un trabajo de 24 horas.</p>
+                                <h2 className="text-3xl md:text-5xl font-bold mb-6 italic font-serif">El Peligro de Gestionar tu Propiedad Solo</h2>
+                                <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-lg">
+                                    Ser anfitrión en Torremolinos ya no es poner un anuncio y esperar. La normativa actual y la exigencia de los huéspedes pueden convertir tu inversión en una fuente de estrés y pérdidas legales.
+                                </p>
                             </div>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                                <div className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10">
-                                    <Icon name="alert-triangle" className="w-6 h-6 md:w-8 md:h-8 text-primary mb-4" />
-                                    <p className="text-base md:text-lg font-medium">¿Cansado de responder mensajes a las 3 de la mañana?</p>
+                                {risks.map((risk, i) => (
+                                    <div key={i} className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 hover:border-primary transition-all group">
+                                        <Icon name={risk.icon} className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
+                                        <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">{risk.title}</h3>
+                                        <p className="text-gray-400 text-sm md:text-base leading-relaxed">{risk.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="mt-12 md:mt-16 bg-primary p-8 md:p-12 rounded-2xl md:rounded-[3rem] text-center">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4">¿Realmente quieres correr estos riesgos?</h3>
+                                <p className="text-lg md:text-xl mb-8 text-white/90">Protegemos tu patrimonio y tu tranquilidad. Somos expertos en la normativa de Torremolinos.</p>
+                                <a href="#contacto" className="bg-white text-dark px-8 md:px-10 py-3 md:py-4 rounded-full font-extrabold text-base md:text-lg hover:shadow-2xl transition-all inline-block">
+                                    Quiero una gestión profesional segura
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Local SEO & Authority Section */}
+                    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+                                <div>
+                                    <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 leading-tight">Expertos en el Mercado Vacacional de <span className="text-primary">Torremolinos</span></h2>
+                                    <p className="text-base md:text-lg text-gray-600 mb-8">
+                                        No somos una agencia nacional que gestiona desde Madrid. Estamos en la <strong>Calle Campillos, 4</strong>. Conocemos la diferencia de demanda entre un ático en <strong>La Carihuela</strong> y un estudio en el <strong>Centro</strong>.
+                                    </p>
+                                    <ul className="space-y-4 mb-8">
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle-2" className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
+                                            <span className="text-sm md:text-base text-gray-700 font-medium"><strong>Lavandería Industrial Propia:</strong> Higiene certificada, sábanas blancas impecables siempre.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle-2" className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
+                                            <span className="text-sm md:text-base text-gray-700 font-medium"><strong>Filtro Anti-Fiestas:</strong> Tecnología de monitorización de ruido y selección estricta de perfiles.</span>
+                                        </li>
+                                        <li className="flex items-start gap-3">
+                                            <Icon name="check-circle-2" className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
+                                            <span className="text-sm md:text-base text-gray-700 font-medium"><strong>Revenue Management Local:</strong> Subimos precios estratégicamente durante el Pride, la Feria y eventos locales.</span>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10">
-                                    <Icon name="alert-triangle" className="w-6 h-6 md:w-8 md:h-8 text-primary mb-4" />
-                                    <p className="text-base md:text-lg font-medium">¿Problemas con limpiezas que no cumplen?</p>
-                                </div>
-                                <div className="bg-primary p-6 md:p-8 rounded-2xl text-center flex flex-col justify-center">
-                                    <h3 className="text-xl md:text-2xl font-bold mb-4">Tenemos la solución</h3>
-                                    <a href="#contacto" className="bg-white text-dark px-6 md:px-8 py-3 rounded-full font-bold inline-block text-sm md:text-base">Contactar</a>
+                                <div className="bg-gray-50 p-8 md:p-10 rounded-2xl md:rounded-[3rem] border border-gray-100">
+                                    <h3 className="text-xl md:text-2xl font-bold mb-6">Tu rentabilidad en números</h3>
+                                    <div className="space-y-6">
+                                        <div className="flex justify-between items-end border-b border-gray-200 pb-4">
+                                            <span className="text-sm md:text-base text-gray-500">Gestión Particular</span>
+                                            <span className="text-lg md:text-xl font-bold text-red-500">~800€/mes</span>
+                                        </div>
+                                        <div className="flex justify-between items-end border-b border-gray-200 pb-4">
+                                            <span className="text-sm md:text-base text-gray-500">Nuestra Gestión (Media)</span>
+                                            <span className="text-lg md:text-xl font-bold text-green-600">~1.400€/mes</span>
+                                        </div>
+                                        <p className="text-xs md:text-sm text-gray-400 italic">
+                                            * Datos basados en la ocupación media anual en la zona de {selectedNeighborhood.name} optimizando precios y visibilidad.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>
+
+                    {/* Services Grid */}
+                    <section className="py-16 md:py-24 bg-gray-50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-12 md:mb-16">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Gestión Integral sin Preocupaciones</h2>
+                                <p className="text-gray-600 text-sm md:text-base">Todo lo que tu propiedad en {selectedNeighborhood.name} necesita para brillar.</p>
+                            </div>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {services.map((service, i) => (
+                                    <div key={i} className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                        <Icon name={service.icon} className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6" />
+                                        <h4 className="text-base md:text-lg font-bold mb-2">{service.title}</h4>
+                                        <p className="text-xs md:text-sm text-gray-500">{service.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Contact Form */}
                     <section id="contacto" className="py-16 md:py-24">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="bg-dark rounded-2xl md:rounded-[3rem] overflow-hidden text-white grid lg:grid-cols-2">
@@ -162,6 +324,7 @@
                 </div>
             );
         }
+
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
